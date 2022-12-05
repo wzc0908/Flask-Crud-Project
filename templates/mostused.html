@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+</head>
+<body>
+
+<span>
+    <button onclick="window.location.href = 'http://localhost:5000/dashboard'">
+    Dashboard
+    </button>
+    <br>
+    <br>
+</span>
+
+<table border = 2>
+         <thead>
+            <td>5 of the most used components</td>
+            <td>Fail Rate</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row[0]}}</td>
+               <td>{{row[1]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+
+    </p>
+</figure>
+
+<script>
+    let data = {{ rows | tojson }}
+        console.log(data)
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Worst Components'
+        },
+        subtitle: {
+            text: '</a>'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Fail Rate'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Most Used Components: <b>{point.y:.2f} %</b>'
+        },
+        series: [{
+            name: 'components',
+            data: [
+                ['windshield', 0.2],
+                ['light', 0.08],
+                ['speaker', 0.02],
+                ['brake ', 0.02],
+                ['tire', 0.01]
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.2f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+
+
+</script>
+</body>
+</html>
