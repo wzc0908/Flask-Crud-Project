@@ -34,6 +34,6 @@
 ### o	Top 5 of the most bad quality components.
 ### o	Top 5 of the most used of test devices.
 ### o	Top 3 of the highest PFR(product failure rate) manufacturer.
-### Summary: I used to methods to do this. In myService.app I wrote a dynamic quicksort functions and sorted the data with python dictionary. I also used SQL commands in dbQuery.app to do the same sorting process. And I generated graphs with highcharts.
+### Summary: I used two methods to do this. In myService.app I wrote a dynamic quicksort functions and sorted the data with python dictionary. I also used SQL commands in dbQuery.app to do the same sorting process. And I generated graphs with highcharts.
 
 
