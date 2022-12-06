@@ -30,7 +30,7 @@
 ### o	Update mapping
 
 ## Part 2: Creating Dashword with quicksort algorithm/sql commands
-### •	Show to the user 3 reports:
+### •	Show 3 reports to the user:
 ### o	Top 5 of the most bad quality components.
 ### o	Top 5 of the most used of test devices.
 ### o	Top 3 of the highest PFR(product failure rate) manufacturer.
